@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Expenses chart component</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div id="topContainer">
+        <div class="balanceContainer">
+          <span class="myBalance">My balance</span
+          ><span class="balanceValue">$921.48</span>
+        </div>
+        <div class="circleContainer">
+          <span id="blackCircle"><span id="whiteCircle"></span></span>
+        </div>
+      </div>
+      <div id="bottomContainer">
+        <div id="title">Spending - Last 7 days</div>
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+        <hr />
+        <div class="bottomPart">
+          <div class="leftTotal">
+            <span id="totalTextLeft">Total this month</span
+            ><span id="totalValueLeft">$478.33</span>
+          </div>
+          <div class="rightTotal">
+            <span id="totalValueRight">+2.4%</span
+            ><span id="totalTextRight">from last month</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("myChart");
+      const titleToolTip = (toolTipItems) => {
+    return "";
+  };
+
+  const labelToolTip = (toolTipItems) => {
+    return "$" + toolTipItems.raw;
+  };
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+          datasets: [
+            {
+              label: ["$"],
+              data: [14.23, 20.11, 26.82, 18.01, 16.50, 24.22, 17.18],
+              borderWidth: 1,
+              backgroundColor: ["hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(186, 34%, 60%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)"],
+              hoverBackgroundColor: ["hsl(10, 79%, 70%)","hsl(10, 79%, 70%)","hsl(186, 34%, 70%)","hsl(10, 79%, 70%)","hsl(10, 79%, 70%)","hsl(10, 79%, 70%)","hsl(10, 79%, 70%)"],
+              borderRadius: 6,
+              borderSkipped: false,
+            },
+          ],
+        },
+        options: {
+          responsive:true,
+          layout:{
+            padding:10
+          },
+          plugins: {
+            tooltip: {
+              caretSize:0,
+              bodyFont: {
+                size: 15
+              },
+              yAlign: "bottom",
+              displayColors: false,
+              callbacks: {
+                title: titleToolTip,
+                label: labelToolTip
+              },
+            },
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            x: {
+              border: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              display: false,
+              suggestedMax: 40,
+              beginAtZero: true,
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

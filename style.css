@@ -1,0 +1,188 @@
+.dm-sans-ceva {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+:root {
+    --Soft-red: hsl(10, 79%, 65%);
+    --Cyan: hsl(186, 34%, 60%);
+    --Dark-brown: hsl(25, 47%, 15%);
+    --Medium-brown: hsl(28, 10%, 53%);
+    --Cream: hsl(27, 66%, 92%);
+    --Very-pale-orange: hsl(33, 100%, 98%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans";
+}
+
+.chart{
+    width: 380px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Cream);
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#topContainer {
+    display: flex;
+    background-color: var(--Soft-red);
+    padding: 30px;
+    border-radius: 13px;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 0px;
+}
+
+.balanceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    font-weight: 500;
+
+}
+
+.circleContainer{
+    cursor: pointer;
+}
+
+.myBalance {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.balanceValue {
+    font-size: 22px;
+}
+
+#blackCircle {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+
+#whiteCircle {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1000;
+    right: 15px;
+}
+
+#bottomContainer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+#title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+
+hr {
+    border-top: 1px solid var(--Cream);
+    border-bottom: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bottomPart {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.leftTotal {
+    display: flex;
+    flex-direction: column;
+    color: var(--Medium-brown);
+    justify-content: flex-end;
+}
+
+.rightTotal {
+    display: flex;
+    flex-direction: column;
+    color: var(--Medium-brown);
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
+
+
+#totalValueLeft {
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+}
+
+#totalValueRight {
+    color: black;
+    font-weight: 700;
+}
+
+@media screen and (max-width:750px){
+    body{
+    height: 100%;
+    align-items: center;
+    }
+
+    html{
+        height: 100%;
+    }
+    .chart{
+        width: 330px;
+    }
+    #totalValueLeft{
+        font-size: 28px;
+    }
+
+    #topContainer{
+        justify-content: space-between;
+        min-width: 0px;
+    }
+
+    #totalTextRight{
+        font-size: 14px;
+    }
+
+    #totalTextLeft{
+        font-size: 14px;
+    }
+
+
+    #wedNote{
+        width: 200%;
+        font-size: 14px;
+        left: -50%;
+    }
+}
